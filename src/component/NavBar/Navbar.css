@@ -1,0 +1,26 @@
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    width: 100vw;
+    padding: 0 5vw;
+    background-color:#f0f2f5 ;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 0 -4px 20px -2px #808080c7;
+    z-index: 999;
+}
+.login{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    min-height: 330px;
+}
+.formLogin{
+
+
+
+}
