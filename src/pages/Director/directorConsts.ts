@@ -1,6 +1,7 @@
 import {FilterConfigInterface} from "../../component/Filter/filterForm";
 import {TabConfigInterface} from "../../component/Tableau/tableauxForm";
-import { GetDirector} from "../../store/modules/Director/directorService";
+import {filterDirector, GetDirector} from "../../store/modules/Director/directorService";
+import {useEffect} from "react";
 
 export const DirectorFilterForm: FilterConfigInterface = {
 	filterForm: [
@@ -26,10 +27,8 @@ export const DirectorFilterForm: FilterConfigInterface = {
 		},
 	],
 	onSubmit: (data: { [key: string]: string | number }) => {
-		GetDirector().then((res:any)=>  {
-			console.log(res)
-		})
-	}
+		filterDirector(data).then()}
+
 }
 
 export const DirectorTab: TabConfigInterface = {

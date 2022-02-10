@@ -13,3 +13,22 @@ export const GetDirector = () => {
 		},
 	})
 }
+
+export const filterDirector=(data:any)=>{
+	return ApiCall({
+		endPoint:"http://localhost:3002/director/filterDirector",
+		method:'get',
+		data:data,
+		successFunction:(res:any)=>{
+			store.dispatch(setListDirector(res))
+			store.dispatch(setLoading(true))
+		}
+	})
+}
+
+export const deleteDirector=(id:any)=>{
+	return ApiCall({
+		endPoint:host+`/director/delete/${id}`,
+		method:'delete',
+	});
+}

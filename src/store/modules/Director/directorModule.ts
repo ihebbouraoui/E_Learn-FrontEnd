@@ -15,6 +15,7 @@ export const directorStore = createSlice({
 			state.list_director=action.payload
 		},
 
+
 	},
 
 })

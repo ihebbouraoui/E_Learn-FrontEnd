@@ -5,7 +5,7 @@ import TabForm, {btnInetrface} from "../../component/Tableau/tableauxForm";
 import {useNavigate} from "react-router-dom";
 import {useSelector} from "react-redux";
 import {RootState, store} from "../../store/store";
-import {GetDirector} from "../../store/modules/Director/directorService";
+import {deleteDirector, GetDirector} from "../../store/modules/Director/directorService";
 import {setListDirector} from "../../store/modules/Director/directorModule";
 
 const Director = () => {
@@ -18,8 +18,11 @@ const Director = () => {
 
 				break;
 			case 'delete':
-				console.log('DELETE')
-				console.log(DirectorTab)
+				deleteDirector(listDirector[data.index]._id).then((res:any)=>{
+					GetDirector().then((res:any)=>{
+						initTable(res)
+					})
+				})
 
 				break;
 		}
@@ -29,19 +32,28 @@ const Director = () => {
 	}
 	const [tableModel, setTableModel] = useState(DirectorTab)
 	const listDirector = useSelector((state:RootState)=>state.director.list_director)
+
+	useEffect(()=>{
+		initTable(listDirector)
+	},[listDirector])
+
 	useEffect(()=> {
 		GetDirector().then((res:any)=>{
-			let temp = tableModel
-			temp.data = res?.map((item: any) => ({
-				name_Director: item.name_Director,
-				username_Director:item.username_Director,
-				mail_Director: item.mail_Director,
-				tel_Director: item.tel_Director,
-			}))
-			setTableModel({...temp})
+			initTable(res)
 		})
 
 	}, [])
+
+	const initTable=(res:any)=>{
+		let temp = tableModel
+		temp.data = res?.map((item: any) => ({
+			name_Director: item.name_Director,
+			username_Director:item.username_Director,
+			mail_Director: item.mail_Director,
+			tel_Director: item.tel_Director,
+		}))
+		setTableModel({...temp})
+	}
 	return (
 		<div className={'directorMain'}>
 			<FilterForm filterData={DirectorFilterForm}/>

@@ -20,3 +20,17 @@ export const deleteProf=(id:any)=>{
 	});
 
 }
+
+
+export const filterProf=(data:any)=>{
+	return ApiCall({
+		endPoint:"http://localhost:3002/prof/filterProf",
+		method:'get',
+		data:data,
+		successFunction:(res:any)=>{
+			store.dispatch(setListProf(res))
+			store.dispatch(setLoading(true))
+		}
+	})
+
+}

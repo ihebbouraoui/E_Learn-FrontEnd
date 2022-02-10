@@ -4,6 +4,7 @@ import {Chart, registerables} from 'chart.js'
 Chart.register(...registerables)
 
 const BarAbon=()=>{
+
 	useEffect(() => {
 		if (document.getElementById('myChartBar3')) {
 			init()
@@ -24,7 +25,7 @@ const BarAbon=()=>{
 			],
 			datasets: [{
 				label: 'احصائيات الاشتراكات',
-				data: [300, 50, 100],
+				data: [456, 456, 123],
 				backgroundColor: [
 					'rgb(255, 99, 132)',
 					'rgb(54, 162, 235)',
@@ -47,5 +48,6 @@ const BarAbon=()=>{
 
 		</div>
 	)
+
 }
 export default BarAbon
