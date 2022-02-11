@@ -32,52 +32,61 @@ import {RootState} from "./store/store";
 import Login from "./component/Authentification/Login";
 
 function App() {
-	const isLoding=useSelector((state:RootState)=>state.auth.isLoading)
+	const isLoding = useSelector((state: RootState) => state.auth.isLoading)
+	let isLogged = useSelector((state: RootState) => state.auth.isLogged)
 
-
-	let path= window.location.pathname
 	return (
+		<div>
+			{isLogged ?
+				<Router>
+					{isLoding && <div className={'loader'}>
+                        <img draggable={false} className={'loaderImage'} alt={''} src={loader}/>
+                    </div>}
+					<NavBar/>
+					<SiderBarAdmin/>
+					<div className={'bodyContainer'}>
+						<Routes>
+							<Route path={'/director'} element={<Director/>}/>
+							<Route path={'*'} element={<Navigate to={'/director'}/>}/>
+							<Route path={'/prof'} element={<Prof/>}/>
+							<Route path={'/prof/detail/:id'} element={<DetailProf/>}>
+								<Route path={'/prof/detail/:id/homework'} element={<HomeWork/>}/>
+								<Route path={'/prof/detail/:id/exam'} element={<ExamProf/>}/>
+								<Route path={'/prof/detail/:id/follow'} element={<Follow/>}/>
+								<Route index element={<ClasseInfo/>}/>
+							</Route>
+							<Route path={'/etudiant'} element={<Etudiant/>}/>
+							<Route path={'/etudiant/detail/:id'} element={<DetailEtudiant/>}>
+								<Route index element={<HomeWordEtudiant/>}/>
+								<Route path={'/etudiant/detail/:id/exam'} element={<ExamEtudiant/>}/>
 
-		<Router>
-			{isLoding && <div className={'loader'}>
-				<img draggable={false} className={'loaderImage'} alt={''} src={loader}/>
-			</div>}
-			<NavBar/>
-			<SiderBarAdmin/>
-			<div className={'bodyContainer'}>
-				<Routes>
+							</Route>
 
-					<Route path={'/director'} element={<Director/>}/>
-					<Route path={'*'} element={<Navigate to={'/director'}/>}/>
-					<Route path={'/prof'} element={<Prof/>}/>
-					<Route path={'/prof/detail/:id'} element={<DetailProf/>}>
-						<Route path={'/prof/detail/:id/homework'} element={<HomeWork/>}/>
-						<Route path={'/prof/detail/:id/exam'} element={<ExamProf/>}/>
-						<Route path={'/prof/detail/:id/follow'} element={<Follow/>}/>
-						<Route index element={<ClasseInfo/>}/>
-					</Route>
-					<Route path={'/etudiant'} element={<Etudiant/>}/>
-					<Route path={'/etudiant/detail/:id'} element={<DetailEtudiant/>}>
-						<Route index element={<HomeWordEtudiant/>}/>
-						<Route path={'/etudiant/detail/:id/exam'} element={<ExamEtudiant/>}/>
+							<Route path={'/abonnement'} element={<Abonnement/>}/>
+							<Route path={'/transfer'} element={<Transfer/>}/>
+							<Route path={'/notification'} element={<Notification/>}/>
+							<Route path={'/setting'} element={<TabsSettings/>}>
+								<Route path={'/setting/ressource'} element={<Ressources/>}/>
+								<Route path={'/setting/price'} element={<Prices/>}/>
+								<Route index element={<Chapter/>}/>
+							</Route>
+							<Route path={'/stat'} element={<Stat/>}/>
+							<Route path={'/ajout'} element={<AddNewDirector/>}/>
 
-					</Route>
+							<Route path={'/login'} element={<Login/>}/>
+						</Routes>
+					</div>
+				</Router>:
 
-					<Route path={'/abonnement'} element={<Abonnement/>}/>
-					<Route path={'/transfer'} element={<Transfer/>}/>
-					<Route path={'/notification'} element={<Notification/>}/>
-					<Route path={'/setting'} element={<TabsSettings/>}>
-						<Route path={'/setting/ressource'} element={<Ressources/>}/>
-						<Route path={'/setting/price'} element={<Prices/>}/>
-						<Route index element={<Chapter/>}/>
-					</Route>
-					<Route path={'/stat'} element={<Stat/>}/>
-					<Route path={'/ajout'} element={<AddNewDirector/>}/>
+			      <div className={'bodyContainer'}>
+					  <Login/>
+				  </div>
 
-					<Route path={'/login'} element={<Login/>}/>
-				</Routes>
-			</div>
-		</Router>
+			}
+
+
+		</div>
+
 	);
 }
 

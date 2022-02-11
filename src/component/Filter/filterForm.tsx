@@ -1,7 +1,5 @@
 import React, {useEffect, useRef} from "react";
 import './filter.css'
-import {btnInetrface} from "../Tableau/tableauxForm";
-import {useLocation} from "react-router-dom";
 
 export interface FormInput {
 	name: string;
@@ -15,10 +13,9 @@ export interface FilterConfigInterface {
 	onSubmit: Function
 }
 
-
 const FilterForm: React.FC<{ filterData: FilterConfigInterface }> = ({filterData}) => {
-	const filterFormToSubmit = useRef<{ [key: string]: string | number }>({})
 
+	const filterFormToSubmit = useRef<{ [key: string]: string | number }>({})
 	useEffect(() => {
 		filterData.filterForm.forEach((item) => {
 			filterFormToSubmit.current[item.name] = ''
@@ -32,6 +29,7 @@ const FilterForm: React.FC<{ filterData: FilterConfigInterface }> = ({filterData
 			}
 		})
 	}
+
 
 	return (
 		<div className={'filterContainer'}>
@@ -48,6 +46,7 @@ const FilterForm: React.FC<{ filterData: FilterConfigInterface }> = ({filterData
 								return (
 									<input className={''} key={item.name} type={item.type} placeholder={item.label}
 										   onChange={(e) => formHasChanged(e, item.name)}
+
 									/>
 								);
 							default:
@@ -57,12 +56,14 @@ const FilterForm: React.FC<{ filterData: FilterConfigInterface }> = ({filterData
 					})
 				}
 			</div>
-			<div className={'btnCont'}>
-				<button className={'btn-success'}
-						onClick={() => filterData.onSubmit(filterFormToSubmit.current)}> البحث
-				</button>
-				<button className={'btn-error'} onClick={() => console.log('ok')}>الغاء البحث</button>
-			</div>
+
+
+			 <div className={'btnCont'}>
+                <button className={'btn-success'}
+                        onClick={() => filterData.onSubmit(filterFormToSubmit.current)}> البحث
+                </button>
+                <button className={'btn-error'} onClick={() => console.log('ok')}>الغاء البحث</button>
+            </div>
 		</div>
 	)
 }

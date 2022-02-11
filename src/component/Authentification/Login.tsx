@@ -1,10 +1,13 @@
 import React from "react";
+import FilterForm from "../Filter/filterForm";
+import {loginForm} from "./loginConst";
 
 const Login=()=>{
 	return(
-		<div className={'form_Login'}>
-
-
+		<div className={'login'} >
+			<div className={'formLogin'}>
+				<FilterForm filterData={loginForm}/>
+			</div>
 		</div>
 	)
 

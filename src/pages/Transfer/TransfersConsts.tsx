@@ -31,10 +31,10 @@ export const TransferFilterForm: FilterConfigInterface = {
 export const TransferTab: TabConfigInterface = {
 	headers: [
 		{
-			label: 'المشتري'
+			label: 'البائع'
 		},
 		{
-			label: 'البائع '
+			label: ' المشتري'
 		}, {
 			label: 'السعر '
 		}, {

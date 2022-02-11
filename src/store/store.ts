@@ -3,12 +3,14 @@ import {authStore} from "./modules/Auth/AuthModule";
 import {directorStore} from "./modules/Director/directorModule";
 import {profStore} from "./modules/Prof/profModule";
 import {studentStore} from "./modules/Student/studentModule";
+import {abonnementStore} from "./modules/Abonnement/abonnementModule";
 
 const rootReducer = combineReducers({
 	auth:authStore.reducer,
 	director:directorStore.reducer,
 	prof:profStore.reducer,
-	student:studentStore.reducer
+	student:studentStore.reducer,
+	abonnemment:abonnementStore.reducer
 })
 
 export const store = configureStore({

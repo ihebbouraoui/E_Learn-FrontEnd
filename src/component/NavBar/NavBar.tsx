@@ -8,15 +8,16 @@ const NavBar=()=>{
 	const closeEvent=()=>{
 		setModal(false)
 	}
-	const componentAddPrice=()=>{
+	const componentLogin=()=>{
 		return(
 			<div className={'login'} >
 				<div className={'formLogin'}>
 
-
+         <form onSubmit={()=>alert("qsd")}>
 		   <label>  اسم المستخدم :     <input style={{backgroundColor:'#f0f2f5'}} placeholder={'example@gmail.com '}/> </label>
 			<label>   كلمة السر : <input style={{backgroundColor:'#f0f2f5'}} placeholder={'........'}/></label>
-				<button className={'btn-success'}> دخول </button>
+				<button type={"submit"}  className={'btn-success'}> دخول </button>
+		 </form>
 				</div>
 			</div>
 		)
@@ -35,7 +36,7 @@ const NavBar=()=>{
 				</div>
 			</div>
 			<div style={{height: '50px'}}/>
-			{isModal && <ModalComp config={{element:componentAddPrice(),onCloseEvent:()=>closeEvent()}}/>}
+			{isModal && <ModalComp config={{element:componentLogin(),onCloseEvent:()=>closeEvent()}}/>}
 
 		</div>
 	)

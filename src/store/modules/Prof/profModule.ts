@@ -1,8 +1,6 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 export interface profInterface {
 	list_Prof:Array<any>;
-
-
 }
 const initialValues: profInterface = {
 	list_Prof:[],

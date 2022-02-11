@@ -30,16 +30,20 @@ const Etudiant = () => {
 	}
 	const [tableModel, setTableModel] = useState(EtudiantTab)
 	const listStudent = useSelector((state: RootState) => state.student.list_student)
+
+	//get all student
 	useEffect(() => {
 		getStudent().then((res: any) => {
 			initTable(res)
 		})
 	}, [])
+
+	// get Filtered Student
 	useEffect(()=>{
 		initTable(listStudent)
 	},[listStudent])
 
-
+//set student in table
  const initTable=(res:any)=>{
 	 let temp = tableModel
 	 temp.data = res?.map((item: any) => ({
