@@ -1,11 +1,13 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 export interface directorInterface {
 	list_director:Array<any>;
+	selected_director?:Array<any>
 
 
 }
 const initialValues: directorInterface = {
 	list_director:[],
+	selected_director:[]
 }
 export const directorStore = createSlice({
 	name: "root",
@@ -14,9 +16,12 @@ export const directorStore = createSlice({
 		setListDirector:(state, action: PayloadAction<any>)=>{
 			state.list_director=action.payload
 		},
+		setSelectedDirector:(state, action: PayloadAction<any>)=>{
+			state.selected_director=action.payload
+		},
 
 
 	},
 
 })
-export const {setListDirector} = directorStore.actions;
+export const {setListDirector,setSelectedDirector} = directorStore.actions;

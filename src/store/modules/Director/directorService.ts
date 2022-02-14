@@ -32,3 +32,7 @@ export const deleteDirector=(id:any)=>{
 		method:'delete',
 	});
 }
+
+export const updateDirector=(id:any)=>{
+
+}

@@ -13,11 +13,11 @@ export interface FilterConfigInterface {
 	onSubmit: Function
 }
 
-const FilterForm: React.FC<{ filterData: FilterConfigInterface }> = ({filterData}) => {
+const FilterForm: React.FC<{ filterData?: FilterConfigInterface}> = ({filterData}) => {
 
 	const filterFormToSubmit = useRef<{ [key: string]: string | number }>({})
 	useEffect(() => {
-		filterData.filterForm.forEach((item) => {
+		filterData?.filterForm.forEach((item) => {
 			filterFormToSubmit.current[item.name] = ''
 		})
 	}, [])
@@ -35,7 +35,7 @@ const FilterForm: React.FC<{ filterData: FilterConfigInterface }> = ({filterData
 		<div className={'filterContainer'}>
 			<div className={'filterFormGrid'}>
 				{
-					filterData.filterForm.map((item) => {
+					filterData?.filterForm.map((item) => {
 						switch (item.type) {
 							case "text":
 							case "number":
@@ -60,7 +60,7 @@ const FilterForm: React.FC<{ filterData: FilterConfigInterface }> = ({filterData
 
 			 <div className={'btnCont'}>
                 <button className={'btn-success'}
-                        onClick={() => filterData.onSubmit(filterFormToSubmit.current)}> البحث
+                        onClick={() => filterData?.onSubmit(filterFormToSubmit.current)}> البحث
                 </button>
                 <button className={'btn-error'} onClick={() => console.log('ok')}>الغاء البحث</button>
             </div>

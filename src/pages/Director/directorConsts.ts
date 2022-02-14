@@ -33,6 +33,7 @@ export const DirectorFilterForm: FilterConfigInterface = {
 
 export const DirectorTab: TabConfigInterface = {
 	headers: [
+		{label:'id'},
 
 		{
 			label: 'الاسم'
@@ -54,9 +55,9 @@ export const DirectorTab: TabConfigInterface = {
 	],
 	btnConfig: [
 		{
-			name: 'تفاصيل',
+			name: 'تعديل',
 			style: 'btn-success',
-			type: 'detail'
+			type: 'detail',
 		},
 		{
 			name: 'حذف',
@@ -65,41 +66,4 @@ export const DirectorTab: TabConfigInterface = {
 		}
 
 	]
-}
-export const DirectorAddForm: FilterConfigInterface = {
-	filterForm: [
-		{
-			type: 'text',
-			label: 'الاسم',
-			name: 'name'
-		},
-		{
-			type: 'email',
-			label: 'البريد الالكتروني',
-			name: 'last_name'
-		},
-		{
-			type: 'text',
-			label: 'أسم العائلة',
-			name: 'last_name'
-		},
-		{
-			type: 'number',
-			label: 'رقم الهاتف',
-			name: 'last_name'
-		},
-		{
-			type: 'text',
-			label: 'كلمة السر',
-			name: 'password'
-		},
-		{
-			type: 'text',
-			label: 'تاكيد كلمة السر',
-			name: 'confirm password'
-		},
-	],
-	onSubmit: (data: { [key: string]: string | number }) => {
-		console.log(data)
-	}
 }

@@ -10,17 +10,20 @@ export interface btnInetrface {
 	name: string,
 	type?: string,
 	style: string,
+	onClick?:Function
 }
 export interface TabConfigInterface {
 	headers: Array<tabInfo>,
 	data: Array<any>
 	btnConfig: Array<btnInetrface>,
 	sendEventToParent?: Function
+	openModel?:Function
 }
 const TabForm: React.FC<{ filterData: TabConfigInterface }> = ({filterData}) => {
 
 	const clickedBtn = (index: number, btn: btnInetrface) => {
 		filterData.sendEventToParent && filterData.sendEventToParent({index, btn})
+		filterData.openModel && filterData.openModel({index,btn})
 	}
 
 	useEffect(() => {
