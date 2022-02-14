@@ -6,7 +6,7 @@ export const RessourceFormConst: FilterConfigInterface = {
 		{
 			type: 'textarea',
 			label: 'ادخل اسم المادة ...',
-			name: 'name'
+			name: 'title'
 		},
 
 	],
@@ -24,25 +24,17 @@ export const ressourceTab: TabConfigInterface = {
 		},
 	],
 	data: [
-		{
-			name: '  علوم ',
-
-		},
-		{
-			name: '  علوم ',
-		},
-		{
-			name: '  علوم ',
-		},
 	],
 	btnConfig: [
 		{
 			name: 'تعديل',
 			style: 'btn-success',
+			type:'detail'
 		},
 		{
 			name: 'حذف',
 			style: 'btn-error',
+			type:'delete'
 		}
 
 	]

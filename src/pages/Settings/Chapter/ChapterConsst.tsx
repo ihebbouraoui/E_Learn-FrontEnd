@@ -6,7 +6,7 @@ export const SeasonFormConst: FilterConfigInterface = {
 		{
 			type: 'textarea',
 			label: 'ادخل اسم الفصل ...',
-			name: 'name'
+			name: 'title'
 		},
 
 	],
@@ -24,25 +24,17 @@ export const chapterTab: TabConfigInterface = {
 		},
 	],
 	data: [
-		{
-			name: ' المتوسط الثاني ',
-
-		},
-		{
-			name: ' المتوسط الثاني ',
-		},
-		{
-			name: ' المتوسط الثاني ',
-		},
 	],
 	btnConfig: [
 		{
 			name: 'تعديل',
 			style: 'btn-success',
+			type:'detail'
 		},
 		{
 			name: 'حذف',
 			style: 'btn-error',
+			type:'delete'
 		}
 
 	]

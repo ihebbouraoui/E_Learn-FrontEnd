@@ -5,24 +5,35 @@ export const TransferFilterForm: FilterConfigInterface = {
 	filterForm: [
 		{
 			type: 'text',
+			label: 'رقم التحويل',
+			name: 'ref'
+		},
+		{
+			type: 'text',
 			label: 'المشتري',
-			name: 'name'
+			name: 'vendor_name'
 		},
 		{
 			type: 'text',
 			label: ' البائع',
-			name: 'last_name'
+			name: 'Purchaser_name'
 		},
 		{
-			type: 'date',
+			type: 'text',
 			label: 'تاريخ الطلب ',
-			name: 'last_name'
+			name: 'date_command'
 		},
 		{
 			type: 'number',
-			label: 'رقم الهاتف',
-			name: 'last_name'
+			label: ' السعر',
+			name: 'price'
 		},
+		{
+			type: 'text',
+			label: ' الحالة',
+			name: 'type'
+		},
+
 	],
 	onSubmit: (data: { [key: string]: string | number }) => {
 		console.log(data)
@@ -30,6 +41,9 @@ export const TransferFilterForm: FilterConfigInterface = {
 }
 export const TransferTab: TabConfigInterface = {
 	headers: [
+		{
+			label: 'رقم التحويل'
+		},
 		{
 			label: 'البائع'
 		},
