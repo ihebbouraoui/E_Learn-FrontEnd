@@ -56,9 +56,9 @@ const Prof = () => {
 	const initTable=(res:any)=>{
 		let temp = tableModel
 		temp.data = res?.map((item:any) => ({
-			name_prof: item.name_prof,
-			mail_prof: item.mail_prof,
-			tel_prof: item.tel_prof,
+			name: item.name,
+			mail: item.mail,
+			tel: item.tel,
 		}))
 		setTableModel({...temp})
 	}

@@ -8,22 +8,22 @@ export const DirectorFilterForm: FilterConfigInterface = {
 		{
 			type: 'text',
 			label: 'الاسم',
-			name: 'name_Director'
+			name: 'name'
 		},
 		{
 			type: 'email',
 			label: 'البريد الالكتروني',
-			name: 'mail_Director'
+			name: 'mail'
 		},
 		{
 			type: 'text',
 			label: 'أسم المستخدم',
-			name: 'username_Director'
+			name: 'username'
 		},
 		{
 			type: 'number',
 			label: 'رقم الهاتف',
-			name: 'tel_Director'
+			name: 'tel'
 		},
 	],
 	onSubmit: (data: { [key: string]: string | number }) => {

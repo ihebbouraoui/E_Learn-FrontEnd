@@ -47,10 +47,10 @@ const Director = () => {
 	const initTable=(res:any)=>{
 		let temp = tableModel
 		temp.data = res?.map((item: any) => ({
-			name_Director: item.name_Director,
-			username_Director:item.username_Director,
-			mail_Director: item.mail_Director,
-			tel_Director: item.tel_Director,
+			name: item.name,
+			username:item.username,
+			mail: item.mail,
+			tel: item.tel,
 		}))
 		setTableModel({...temp})
 	}

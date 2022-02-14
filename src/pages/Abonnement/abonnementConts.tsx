@@ -44,6 +44,9 @@ export const AbonnementFormConst: FilterConfigInterface = {
 }
 export const AbonnementTab: TabConfigInterface = {
 	headers: [
+		{
+			label: 'رقم الأشتراك'
+		},
 
 		{
 			label: 'اسم المعلم'

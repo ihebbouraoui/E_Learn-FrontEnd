@@ -25,7 +25,8 @@ const Abonnement = () => {
 	const initTable=(res:any)=>{
 		let temp = tableModel
 		temp.data = res?.map((item:any) => ({
-			name_prof: item.profId.name_prof,
+			num:item.num,
+			name: item.userId.name,
 			duration:item.duration,
 			value:item.value,
 			subscribe_start:item.subscribe_start,

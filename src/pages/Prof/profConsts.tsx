@@ -9,17 +9,17 @@ export const ProfFilterForm: FilterConfigInterface = {
 		{
 			type: 'text',
 			label: 'الاسم',
-			name: 'name_prof'
+			name: 'name'
 		},
 		{
 			type: 'email',
 			label: 'البريد الالكتروني',
-			name: 'mail_prof'
+			name: 'mail'
 		},
 		{
 			type: 'number',
 			label: 'رقم الهاتف',
-			name: 'tel_prof'
+			name: 'tel'
 		},
 
 	],

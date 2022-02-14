@@ -9,22 +9,22 @@ export const EtudiantFormConsts: FilterConfigInterface = {
 		{
 			type: 'text',
 			label: 'الاسم',
-			name: 'name_student'
+			name: 'name'
 		},
 		{
 			type: 'email',
 			label: 'البريد الالكتروني',
-			name: 'mail_student'
+			name: 'mail'
 		},
 		{
 			type: 'text',
 			label: 'أسم المستخدم',
-			name: 'username_student'
+			name: 'username'
 		},
 		{
 			type: 'number',
 			label: 'رقم الهاتف',
-			name: 'tel_student'
+			name: 'tel'
 		},
 	],
 
