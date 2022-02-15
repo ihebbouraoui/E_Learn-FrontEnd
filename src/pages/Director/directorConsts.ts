@@ -33,8 +33,6 @@ export const DirectorFilterForm: FilterConfigInterface = {
 
 export const DirectorTab: TabConfigInterface = {
 	headers: [
-		{label:'id'},
-
 		{
 			label: 'الاسم'
 		},

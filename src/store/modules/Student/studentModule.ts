@@ -1,11 +1,11 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 export interface studentInterface {
 	list_student:Array<any>;
-	detail_User:any
+	selected_user:any
 }
 const initialValues: studentInterface = {
 	list_student:[],
-	detail_User:undefined
+	selected_user:undefined
 }
 export const studentStore = createSlice({
 	name: "root",
@@ -14,11 +14,11 @@ export const studentStore = createSlice({
 		setListStudent:(state, action: PayloadAction<any>)=>{
 			state.list_student=action.payload
 		},
-		setUser:(state, action: PayloadAction<any>)=>{
-			state.detail_User=action.payload
+		setSelectedUser:(state, action: PayloadAction<any>)=>{
+			state.selected_user=action.payload
 		},
 
 	},
 
 })
-export const {setListStudent,setUser} = studentStore.actions;
+export const {setListStudent,setSelectedUser} = studentStore.actions;

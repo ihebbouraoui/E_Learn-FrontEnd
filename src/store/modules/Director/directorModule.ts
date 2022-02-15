@@ -1,13 +1,13 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 export interface directorInterface {
 	list_director:Array<any>;
-	selected_director?:Array<any>
+	selected_director?:any
 
 
 }
 const initialValues: directorInterface = {
 	list_director:[],
-	selected_director:[]
+	selected_director:undefined
 }
 export const directorStore = createSlice({
 	name: "root",

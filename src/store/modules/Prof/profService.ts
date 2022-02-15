@@ -1,7 +1,7 @@
 import {ApiCall} from "../../ApiCall";
 import {host, store} from "../../store";
 import {setLoading} from "../Auth/AuthModule";
-import {setListProf} from "./profModule";
+import {setListProf, setSelectedProf} from "./profModule";
 
 export const getProf = () => {
 	return ApiCall({
@@ -32,5 +32,16 @@ export const filterProf=(data:any)=>{
 			store.dispatch(setLoading(true))
 		}
 	})
+}
 
+export  const detailProf=(data:any)=>{
+	return ApiCall({
+		endPoint:host+'/prof/detail',
+		method:'get',
+		data:data,
+		successFunction:(res:any)=>{
+			store.dispatch(setLoading(true))
+		}
+
+	})
 }

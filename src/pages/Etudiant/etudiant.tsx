@@ -5,10 +5,11 @@ import TabForm, {btnInetrface} from "../../component/Tableau/tableauxForm";
 import {DirectorTab} from "../Director/directorConsts";
 import {useNavigate} from "react-router-dom";
 import {useSelector} from "react-redux";
-import {RootState} from "../../store/store";
-import {deleteProf, getProf} from "../../store/modules/Prof/profService";
-import {deleteStudent, filterStudent, getStudent} from "../../store/modules/Student/studentService";
-import DetailEtudiant from "./DetailEtudiant/detailEtudiant";
+import {RootState, store} from "../../store/store";
+import {deleteStudent,
+	getStudent} from "../../store/modules/Student/studentService";
+import {setSelectedProf} from "../../store/modules/Prof/profModule";
+import {setSelectedUser} from "../../store/modules/Student/studentModule";
 
 
 const Etudiant = () => {
@@ -16,8 +17,9 @@ const Etudiant = () => {
 	const receive = (data: { index: number, btn: btnInetrface }) => {
 		switch (data.btn?.type) {
 			case 'detail':
-				navigate(`etudiant/student/detail/${listStudent[data.index]._id}`)
-				console.log(DirectorTab.data[data.index])
+				store.dispatch(setSelectedUser(listStudent[data.index]))
+				navigate('/etudiant/detail/:id')
+
 				break;
 			case 'delete':
 				deleteStudent(listStudent[data.index]._id).then((res) => {

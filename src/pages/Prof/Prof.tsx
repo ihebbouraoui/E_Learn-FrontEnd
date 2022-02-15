@@ -4,12 +4,17 @@ import {ProfFilterForm, profTab} from "./profConsts";
 import TabForm, {btnInetrface} from "../../component/Tableau/tableauxForm";
 import {deleteProf, getProf} from "../../store/modules/Prof/profService";
 import {useSelector} from "react-redux";
-import {RootState} from "../../store/store";
+import {RootState, store} from "../../store/store";
+import DetailProf from "./detailProf";
+import SideBardProf from "./SideBardProf";
+import {useNavigate} from "react-router-dom";
+import {setSelectedDirector} from "../../store/modules/Director/directorModule";
+import {setSelectedProf} from "../../store/modules/Prof/profModule";
 
 export interface detailProf {
-	nom: string,
-	email: string,
-	phone: string
+	name: string,
+	mail: string,
+	tel: string
 }
 
 export interface labelProf {
@@ -36,12 +41,12 @@ const Prof = () => {
 	},[listProf])
 
 
-
+const navigate=useNavigate()
 	const receive = (data: { index: number, btn: btnInetrface }) => {
 		switch (data.btn?.type) {
 			case 'detail':
-				// navigate('/prof/detail/2')
-				console.log(listProf[data.index]._id)
+				store.dispatch(setSelectedProf(listProf[data.index]))
+				navigate('/prof/detail/:id')
 				break;
 			case 'delete':
 				deleteProf(listProf[data.index]._id).then((res)=>{

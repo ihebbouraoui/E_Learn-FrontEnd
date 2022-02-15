@@ -1,8 +1,7 @@
 import {ApiCall} from "../../ApiCall";
 import {host, store} from "../../store";
 import {setLoading} from "../Auth/AuthModule";
-import {setListStudent, setUser} from "./studentModule";
-import {setListDirector} from "../Director/directorModule";
+import {setListStudent} from "./studentModule";
 
 export const getStudent = () => {
 	return ApiCall({
@@ -21,16 +20,6 @@ export const deleteStudent=(id:any)=>{
 	});
 }
 
-export const getStudentById=(id:any)=>{
-	return ApiCall({
-		endPoint:host+`/student/detail/${id}`,
-		method:'get',
-		successFunction:(res:any)=>{
-			store.dispatch(setUser(res))
-			store.dispatch(setLoading(true))
-		}
-	})
-}
 
 export const filterStudent=(data:any)=>{
 	return ApiCall({

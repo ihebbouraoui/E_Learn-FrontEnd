@@ -33,6 +33,13 @@ export const deleteDirector=(id:any)=>{
 	});
 }
 
-export const updateDirector=(id:any)=>{
-
+export const updateDirectorWithMail=(data:any)=>{
+	return ApiCall({
+		endPoint:"http://localhost:3002/director/updateDirector/",
+		method:'put',
+		data:data,
+		successFunction:(res:any)=>{
+			store.dispatch(setLoading(true))
+		}
+	})
 }

@@ -23,7 +23,6 @@ const TabForm: React.FC<{ filterData: TabConfigInterface }> = ({filterData}) => 
 
 	const clickedBtn = (index: number, btn: btnInetrface) => {
 		filterData.sendEventToParent && filterData.sendEventToParent({index, btn})
-		filterData.openModel && filterData.openModel({index,btn})
 	}
 
 	useEffect(() => {
