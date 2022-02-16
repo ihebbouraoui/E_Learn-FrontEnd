@@ -35,7 +35,7 @@ const Transfer = () => {
 		let temp = tableModel
 		temp.data = res?.map((item:any) => ({
 			ref:item.ref,
-			vendor_name: item.vendorId.name,
+			vendor_name: item.vendorId?.name,
 			Purchaser_name:item.PurchaserId.name,
 			price:item.price,
 			type:item.type,

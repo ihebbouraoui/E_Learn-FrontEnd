@@ -1,20 +1,10 @@
 import {ApiCall} from "../../ApiCall";
 import {host, store} from "../../store";
 import {setLoading} from "../Auth/AuthModule";
-import {setListChapter, setListResource} from "./settingModule";
+import { setListClass,  setListSubject} from "./settingModule";
 
 // api Chapter
-export const getChapter = () => {
-	return ApiCall({
-		endPoint: host+"/prof/getChapter",
-		method: 'get',
-		successFunction: (res: any) => {
-			store.dispatch(setListChapter(res))
-			store.dispatch(setLoading(true))
-		},
-	})
-}
-export const deleteChapter=(id:any)=>{
+export const deleteClass=(id:any)=>{
 	return ApiCall({
 		endPoint:host+`/prof/chapter/delete/${id}`,
 		method:'delete',
@@ -23,21 +13,32 @@ export const deleteChapter=(id:any)=>{
 
 
 // api Resource
-export const getResource = () => {
+export const getSubject = () => {
 	return ApiCall({
-		endPoint: host+"/prof/getResource",
+		endPoint: "http://localhost:3002/class/getSubject",
 		method: 'get',
 		successFunction: (res: any) => {
-			store.dispatch(setListResource(res))
+			store.dispatch(setListSubject(res))
 			store.dispatch(setLoading(true))
 		},
 	})
 }
-export const deleteResource=(id:any)=>{
+export const deleteSubject=(id:any)=>{
 	return ApiCall({
 		endPoint:host+`/prof/resource/delete/${id}`,
 		method:'delete',
 	});
 }
 
+
+export  const getClass=()=>{
+	return ApiCall({
+		endPoint:"http://localhost:3002/class/getAllClass",
+		method:'get',
+		successFunction:(res:any)=>{
+			store.dispatch(setListClass(res))
+			store.dispatch(setLoading(true))
+		}
+	})
+}
 

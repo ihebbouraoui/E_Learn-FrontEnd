@@ -1,28 +1,29 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 
 export interface settingInterface {
-	list_Chapter:Array<any>
-	list_Resource:Array<any>
+	list_Subject:Array<any>
+	list_Class:Array<any>
 
 
 }
 
 const initialValues: settingInterface = {
-	list_Chapter:[],
-	list_Resource:[]
+	list_Class:[],
+	list_Subject:[]
 
 }
 export const settingStore = createSlice({
 	name: "auth",
 	initialState: initialValues,
 	reducers: {
-		setListChapter: (state, action: PayloadAction<any>) => {
-			state.list_Chapter=action.payload
+
+		setListSubject: (state, action: PayloadAction<any>) => {
+			state.list_Subject=action.payload
 		},
-		setListResource: (state, action: PayloadAction<any>) => {
-			state.list_Resource=action.payload
+		setListClass: (state, action: PayloadAction<any>) => {
+			state.list_Class=action.payload
 		},
 
 	}
 })
-export const {setListChapter,setListResource} = settingStore.actions;
+export const {setListSubject,setListClass} = settingStore.actions;

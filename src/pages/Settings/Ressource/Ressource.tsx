@@ -4,7 +4,7 @@ import {RessourceFormConst, ressourceTab} from "./RessourceConst";
 import TabForm, {btnInetrface} from "../../../component/Tableau/tableauxForm";
 import {useSelector} from "react-redux";
 import {RootState} from "../../../store/store";
-import {deleteChapter, deleteResource, getChapter, getResource} from "../../../store/modules/Setting/settingService";
+import {deleteSubject, getSubject} from "../../../store/modules/Setting/settingService";
 import {chapterTab} from "../Chapter/ChapterConsst";
 
 
@@ -16,26 +16,26 @@ const Ressources = () => {
 				console.log(chapterTab.data[data.index])
 				break;
 			case 'delete':
-				deleteResource(list_Resource[data.index]._id).then((res:any)=>{
-					getResource().then((res:any)=>{
+				deleteSubject(list_Subject[data.index]._id).then((res:any)=>{
+					getSubject().then((res:any)=>{
 						initTable(res)
 					})
 				})
 				break;
 		}
 	}
-	const list_Resource=useSelector((state:RootState)=>state.setting.list_Resource)
+	const list_Subject=useSelector((state:RootState)=>state.setting.list_Subject)
 	const [tableModel, setTableModel] = useState(ressourceTab)
 
 	useEffect(()=>{
-		getResource().then((res:any)=>{
+		getSubject().then((res:any)=>{
 			initTable(res)
 		})
 
 	},[])
 	useEffect(()=>{
-		initTable(list_Resource)
-	},[list_Resource])
+		initTable(list_Subject)
+	},[list_Subject])
 
 	const initTable=(res:any)=>{
 		let temp = tableModel

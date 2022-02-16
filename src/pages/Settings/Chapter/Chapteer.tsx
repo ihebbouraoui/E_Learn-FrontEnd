@@ -5,11 +5,7 @@ import {chapterTab, SeasonFormConst} from "./ChapterConsst";
 import TabForm, {btnInetrface} from "../../../component/Tableau/tableauxForm";
 import {useSelector} from "react-redux";
 import {RootState} from "../../../store/store";
-import {AbonnementTab} from "../../Abonnement/abonnementConts";
-import {getAbonnements} from "../../../store/modules/Abonnement/abonnementService";
-import {deleteChapter, getChapter} from "../../../store/modules/Setting/settingService";
-import {DirectorTab} from "../../Director/directorConsts";
-import {deleteDirector, GetDirector} from "../../../store/modules/Director/directorService";
+import {getClass} from "../../../store/modules/Setting/settingService";
 
 const Chapters = () => {
 
@@ -20,28 +16,24 @@ const Chapters = () => {
 				console.log(chapterTab.data[data.index])
 				break;
 			case 'delete':
-				deleteChapter(list_Chapter[data.index]._id).then((res:any)=>{
-					getChapter().then((res:any)=>{
-						initTable(res)
-					})
-				})
+				console.log('qsd')
 				break;
 		}
 	}
 
 
-	const list_Chapter=useSelector((state:RootState)=>state.setting.list_Chapter)
+	const list_Class=useSelector((state:RootState)=>state.setting.list_Class)
 	const [tableModel, setTableModel] = useState(chapterTab)
 
 	useEffect(()=>{
-		getChapter().then((res:any)=>{
+		getClass().then((res:any)=>{
 			initTable(res)
 		})
 
 	},[])
 	useEffect(()=>{
-		initTable(list_Chapter)
-	},[list_Chapter])
+		initTable(list_Class)
+	},[list_Class])
 
 	const initTable=(res:any)=>{
 		let temp = tableModel
