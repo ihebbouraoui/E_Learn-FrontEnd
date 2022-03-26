@@ -1,6 +1,8 @@
 import React, {useState} from "react";
 import './SideBar.css'
 import {useNavigate} from "react-router-dom";
+import {useSelector} from "react-redux";
+import {RootState} from "../../store/store";
 
 const SiderBarAdmin = () => {
 	const links = [
@@ -12,10 +14,16 @@ const SiderBarAdmin = () => {
 		{link: 'الأشعارات'},
 		{link: 'الاعدادات'},
 		{link: 'إحصائيات'}
-
+	]
+	const linksProf=[
+		{link:"معلوماتي"},
+		{link: 'اقسامي'},
+		{link: 'مشاركاتي'},
+		{link: 'دردشة'},
 	]
 	let navigate = useNavigate()
 	const [selected, setSelected] = useState(0)
+	const userLoged=useSelector((state:RootState)=>state.auth.userLogged)
 	const navigator = (index: number) => {
 		setSelected(index)
 		switch (index) {
@@ -50,16 +58,36 @@ const SiderBarAdmin = () => {
 		}
 
 	}
+	const navigator2 = (index: number) => {
+		setSelected(index)
+		switch (index) {
+
+			case 0 :
+				navigate('/profilProf')
+				break;
+			default :
+				navigate('/profilProf')
+				break;
+		}
+
+	}
 	return (
 		<div className={'siderBar'}>
 			<div style={{height: '100px'}}/>
 
-			{links.map((item: any, index: number) => (
+			{ userLoged?.user?.role==='admin'&& links.map((item: any, index: number) => (
 					<div className={`sidebarElement ${selected === index}`} onClick={() => navigator(index)}>
 						{item?.link}
 					</div>
 				)
 			)}
+			{ userLoged?.user?.role==='prof'&& linksProf.map((item: any, index: number) => (
+					<div className={`sidebarElement ${selected === index}`} onClick={() => navigator2(index)}>
+						{item?.link}
+					</div>
+				)
+			)}
+
 		</div>
 	)
 }

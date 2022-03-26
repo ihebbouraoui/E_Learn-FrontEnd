@@ -25,7 +25,6 @@ export const ProfFilterForm: FilterConfigInterface = {
 	],
 	onSubmit: (data: {[key:string]: string | number}) => {
 		filterProf(data).then((res)=>{
-			console.log(res)
 		})	}
 }
 
@@ -56,17 +55,6 @@ export const profTab: TabConfigInterface = {
 			style:'btn-error',
 			type: 'delete'
 		}
-
-	]
-}
-export const ProfClick:profClicked={
-	data:[
-
-	],
-	label: [
-		{label:"الاسم بلكامل"} ,
-		{label:" البريد الألكتروني"} ,
-		{label:" رقم الهاتف"} ,
 
 	]
 }

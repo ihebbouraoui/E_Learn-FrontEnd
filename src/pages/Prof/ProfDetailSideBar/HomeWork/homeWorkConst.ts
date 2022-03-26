@@ -16,24 +16,7 @@ export const HomeWorkTab: TabConfigInterface = {
 		},
 	],
 	data: [
-		{
-			name: ' الواجب 1  ',
-			email: ' علوم ',
-			classe: 'الثاتي المتوسط  ',
 
-		},
-		{
-			name: ' الواجب 1  ',
-			email: ' علوم ',
-			classe: 'الثاتي المتوسط  ',
-
-		},
-		{
-			name: ' الواجب 1  ',
-			email: ' علوم ',
-			classe: 'الثاتي المتوسط  ',
-
-		},
 	],
 	btnConfig: [
 		{

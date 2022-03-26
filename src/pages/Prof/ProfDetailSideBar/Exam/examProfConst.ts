@@ -13,21 +13,7 @@ export const examTabConst: TabConfigInterface = {
 		},
 	],
 	data: [
-		{
-			name: 'الاختبار 1  ',
-			email: ' علوم ',
 
-		},
-		{
-			name: 'الاختبار 1  ',
-			email: ' علوم ',
-
-		},
-		{
-			name: 'الاختبار 1  ',
-			email: ' علوم ',
-
-		},
 	],
 	btnConfig: [
 		{

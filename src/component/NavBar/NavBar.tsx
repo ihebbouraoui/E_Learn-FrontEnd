@@ -1,42 +1,38 @@
-import React, {useState} from "react";
+import React from "react";
 import './Navbar.css'
-import ModalComp from "../Modal/modalComp";
+import {useSelector} from "react-redux";
+import {RootState, store} from "../../store/store";
+import {setLoading, setLogged, setUserLogged} from "../../store/modules/Auth/AuthModule";
 
-const NavBar=()=>{
+const NavBar = () => {
 
-	const   [isModal,setModal]=useState(false)
-	const closeEvent=()=>{
-		setModal(false)
-	}
-	const componentLogin=()=>{
-		return(
-			<div className={'login'} >
-				<div className={'formLogin'}>
+	const userConnected = useSelector((state: RootState) => state.auth.userLogged)
 
-         <form onSubmit={()=>alert("qsd")}>
-		   <label>  اسم المستخدم :     <input style={{backgroundColor:'#f0f2f5'}} placeholder={'example@gmail.com '}/> </label>
-			<label>   كلمة السر : <input style={{backgroundColor:'#f0f2f5'}} placeholder={'........'}/></label>
-				<button type={"submit"}  className={'btn-success'}> دخول </button>
-		 </form>
-				</div>
-			</div>
-		)
-	}
+const logout=()=>{
+	store.dispatch(setLogged(false))
+	store.dispatch(setLoading(true))
+	store.dispatch(setUserLogged(''))
 
-	return(
+}
+	console.log(userConnected)
+
+	return (
 		<div>
 			<div className={'navbar'}>
 
 				<div className={'path'}>
-					qsdqsdqsdq
+				 <p> مرحبا بك {userConnected.user.name}</p>
 				</div>
-				<div className={'Auth'}>
-					<button className={'btn-success'} onClick={()=>setModal(true)}> Login </button>
+				<div className={'logout'} >
+					<button onClick={()=>logout()} style={{backgroundColor:'blue'}}>
+						 logout
+					</button>
+
 
 				</div>
+
 			</div>
 			<div style={{height: '50px'}}/>
-			{isModal && <ModalComp config={{element:componentLogin(),onCloseEvent:()=>closeEvent()}}/>}
 
 		</div>
 	)

@@ -12,15 +12,16 @@
     box-shadow: 0 -4px 20px -2px #808080c7;
     z-index: 999;
 }
-.login{
-    display: flex;
-    justify-content: space-between;
+.path {
+    position: absolute;
+    left: 42%;
     align-items: center;
-    flex-direction: column;
-    min-height: 330px;
+    font-size: 20px;
+    font-weight: bold;
+    color: dodgerblue;
 }
-.formLogin{
-
-
+.logout{
+    position: absolute;
+      left: 10px;
 
 }

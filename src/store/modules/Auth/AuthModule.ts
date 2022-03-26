@@ -3,16 +3,15 @@ import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 export interface authInterfrace {
 	isLoading: boolean;
 	isLogged:boolean;
+	userLogged: any
 
 
 }
 
 const initialValues: authInterfrace = {
 	isLoading: false,
-	isLogged:true
-
-
-
+	isLogged:false,
+	userLogged:undefined
 }
 export const authStore = createSlice({
 	name: "auth",
@@ -24,7 +23,11 @@ export const authStore = createSlice({
 		setLogged: (state, action: PayloadAction<boolean>) => {
 			state.isLogged = action.payload
 		},
+		setUserLogged: (state, action: PayloadAction<any>) => {
+			state.userLogged = action.payload
+		},
+
 
 	}
 })
-export const {setLoading,setLogged} = authStore.actions;
+export const {setLoading,setLogged,setUserLogged} = authStore.actions;

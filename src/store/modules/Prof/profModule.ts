@@ -2,10 +2,16 @@ import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 export interface profInterface {
 	list_Prof:Array<any>;
 	selected_Prof:any
+	prof_class?:Array<any>
+	subject?:any
+	toDo:any
 }
 const initialValues: profInterface = {
 	selected_Prof:undefined,
 	list_Prof:[],
+	prof_class:[],
+	subject: undefined,
+	toDo:undefined
 }
 export const profStore = createSlice({
 	name: "root",
@@ -16,9 +22,18 @@ export const profStore = createSlice({
 		},
 		setSelectedProf:(state,action:PayloadAction<any>)=>{
 			state.selected_Prof=action.payload
+		},
+		setProfClass:(state,action:PayloadAction<any>)=>{
+			state.prof_class=action.payload
+		},
+		setSubjectProf:(state,action:PayloadAction<any>)=>{
+			state.subject=action.payload
+		},
+		setToDo:(state,action:PayloadAction<any>)=>{
+			state.toDo=action.payload
 		}
 
 	},
 
 })
-export const {setListProf,setSelectedProf} = profStore.actions;
+export const {setListProf,setSelectedProf,setProfClass,setSubjectProf,setToDo} = profStore.actions;

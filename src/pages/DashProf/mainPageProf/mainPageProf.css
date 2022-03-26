@@ -1,0 +1,30 @@
+.photo{
+    background-color: white;
+    max-width: 600px;
+    min-width: 200px;
+    min-height: 200px;
+    border-radius: 20px;
+    box-shadow: 0 0 6px 0 #55555533;
+    padding: 20px;
+    position: relative;
+    right: 50vh;
+   display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+.profilCard{
+    width: 100% !important;
+    height: 100% !important;
+    position: fixed;
+    backdrop-filter: blur(3px);
+    overflow: scroll;
+
+}
+.infoUser{
+    position: relative;
+    right: 50vh;
+
+
+}

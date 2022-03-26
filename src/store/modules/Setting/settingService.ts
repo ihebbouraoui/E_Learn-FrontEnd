@@ -15,7 +15,7 @@ export const deleteClass=(id:any)=>{
 // api Resource
 export const getSubject = () => {
 	return ApiCall({
-		endPoint: "http://localhost:3002/class/getSubject",
+		endPoint: "http://localhost:3002/subject/getSubject",
 		method: 'get',
 		successFunction: (res: any) => {
 			store.dispatch(setListSubject(res))
@@ -33,7 +33,7 @@ export const deleteSubject=(id:any)=>{
 
 export  const getClass=()=>{
 	return ApiCall({
-		endPoint:"http://localhost:3002/class/getAllClass",
+		endPoint:"http://localhost:3002/class/getClass",
 		method:'get',
 		successFunction:(res:any)=>{
 			store.dispatch(setListClass(res))

@@ -16,25 +16,7 @@ export const examEtudiantTab: TabConfigInterface = {
 		},
 	],
 	data: [
-		{
-			name: 'الاختبار 1  ',
-			email: ' محمد صالح ',
-			task:'رياضيات',
 
-
-		},
-		{
-			name: 'الاختبار 1  ',
-			email: ' محمد صالح ',
-			task:'رياضيات',
-
-		},
-		{
-			name: 'الاختبار 1  ',
-			email: ' محمد صالح ',
-			task:'رياضيات',
-
-		},
 	],
 	btnConfig: [
 		{

@@ -5,10 +5,7 @@ import TabForm, {btnInetrface} from "../../component/Tableau/tableauxForm";
 import {deleteProf, getProf} from "../../store/modules/Prof/profService";
 import {useSelector} from "react-redux";
 import {RootState, store} from "../../store/store";
-import DetailProf from "./detailProf";
-import SideBardProf from "./SideBardProf";
 import {useNavigate} from "react-router-dom";
-import {setSelectedDirector} from "../../store/modules/Director/directorModule";
 import {setSelectedProf} from "../../store/modules/Prof/profModule";
 
 export interface detailProf {
@@ -34,7 +31,6 @@ const Prof = () => {
 			initTable(res)
 		})
 	}, [])
-
 
 	useEffect(()=>{
 		initTable(listProf)

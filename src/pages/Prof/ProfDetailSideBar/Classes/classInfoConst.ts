@@ -13,21 +13,7 @@ export const classTabConst: TabConfigInterface = {
 		},
 	],
 	data: [
-		{
-			name: 'الثاتي المتوسط  ',
-			email: ' علوم ',
-
-		},
-		{
-			name: 'الثاتي المتوسط  ',
-			email: ' علوم ',
-
-		},
-		{
-			name: 'الثاتي المتوسط  ',
-			email: ' علوم ',
-
-		},
+	
 	],
 	btnConfig: [
 		{

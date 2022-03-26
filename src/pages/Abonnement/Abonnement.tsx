@@ -5,7 +5,6 @@ import TabForm from "../../component/Tableau/tableauxForm";
 import {useSelector} from "react-redux";
 import {RootState} from "../../store/store";
 import {getAbonnements} from "../../store/modules/Abonnement/abonnementService";
-import {profTab} from "../Prof/profConsts";
 
 const Abonnement = () => {
 	  const list_Abonnement=useSelector((state:RootState)=>state.abonnemment.list_abonnement)

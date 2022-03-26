@@ -22,8 +22,8 @@ import Follow from "./pages/Prof/ProfDetailSideBar/FollowRecord/Follow";
 import DetailEtudiant from "./pages/Etudiant/DetailEtudiant/detailEtudiant";
 import HomeWordEtudiant from "./pages/Etudiant/DetailEtudiant/HomeWorkEtudiant/homeWordEtudiant";
 import ExamEtudiant from "./pages/Etudiant/DetailEtudiant/ExamEtudiant/examEtudiant";
+import MainPageProf from "./pages/DashProf/mainPageProf/MainPageProf";
 import Stat from "./pages/Stats/stat";
-import addNewDirector from "./pages/Director/addNewDirector";
 import AddNewDirector from "./pages/Director/addNewDirector";
 // @ts-ignore
 import loader from './assets/loader-svgrepo-com.svg'
@@ -34,10 +34,11 @@ import Login from "./component/Authentification/Login";
 function App() {
 	const isLoding = useSelector((state: RootState) => state.auth.isLoading)
 	let isLogged = useSelector((state: RootState) => state.auth.isLogged)
-
+	let userLogged = useSelector((state: RootState) => state.auth.userLogged)
+	console.log(userLogged)
 	return (
 		<div>
-			{isLogged ?
+			{isLogged && userLogged?.user?.role === 'admin' ?
 				<Router>
 					{isLoding && <div className={'loader'}>
                         <img draggable={false} className={'loaderImage'} alt={''} src={loader}/>
@@ -76,11 +77,30 @@ function App() {
 							<Route path={'/login'} element={<Login/>}/>
 						</Routes>
 					</div>
-				</Router>:
+				</Router> : isLogged && userLogged?.user?.role === 'prof' ?
 
-			      <div className={'bodyContainer'}>
-					  <Login/>
-				  </div>
+					<Router>
+						<NavBar/>
+                        <SiderBarAdmin/>
+						<div className={'bodyContainer'}>
+                     <Routes>
+						 <Route path={'/profilProf'} element={<MainPageProf/>}/>
+					 </Routes>
+						</div>
+					</Router>
+
+					:
+
+					 isLogged && userLogged?.user?.role === 'student' ?
+						<p>
+							student
+						</p>
+
+						:
+
+
+						<Login/>
+
 
 			}
 

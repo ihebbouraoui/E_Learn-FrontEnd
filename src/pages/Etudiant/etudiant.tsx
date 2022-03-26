@@ -2,13 +2,11 @@ import React, {useEffect, useState} from "react";
 import FilterForm from "../../component/Filter/filterForm";
 import {EtudiantFormConsts, EtudiantTab} from "./etudiantConsts";
 import TabForm, {btnInetrface} from "../../component/Tableau/tableauxForm";
-import {DirectorTab} from "../Director/directorConsts";
 import {useNavigate} from "react-router-dom";
 import {useSelector} from "react-redux";
 import {RootState, store} from "../../store/store";
 import {deleteStudent,
 	getStudent} from "../../store/modules/Student/studentService";
-import {setSelectedProf} from "../../store/modules/Prof/profModule";
 import {setSelectedUser} from "../../store/modules/Student/studentModule";
 
 
@@ -19,7 +17,7 @@ const Etudiant = () => {
 			case 'detail':
 				store.dispatch(setSelectedUser(listStudent[data.index]))
 				navigate('/etudiant/detail/:id')
-
+				// console.log(listStudent[data.index])
 				break;
 			case 'delete':
 				deleteStudent(listStudent[data.index]._id).then((res) => {
@@ -38,7 +36,7 @@ const Etudiant = () => {
 		getStudent().then((res: any) => {
 			initTable(res)
 		})
-	}, [])
+	},[])
 
 	// get Filtered Student
 	useEffect(()=>{

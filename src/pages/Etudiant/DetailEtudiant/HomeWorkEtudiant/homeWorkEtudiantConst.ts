@@ -16,24 +16,7 @@ export const HomeWordEtudiantTab: TabConfigInterface = {
 		},
 	],
 	data: [
-		{
-			name: '  عدد 23 صفحة 250  ',
-			email: ' محمد صالح ',
-			class: ' رياضيات  ',
 
-		},
-		{
-			name: '  عدد 23 صفحة 250  ',
-			email: ' محمد صالح ',
-			class: ' رياضيات  ',
-
-		},
-		{
-			name: '  عدد 23 صفحة 250  ',
-			email: ' محمد صالح ',
-			class: ' رياضيات  ',
-
-		},
 	],
 	btnConfig: [
 		{

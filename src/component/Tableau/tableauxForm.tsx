@@ -26,7 +26,6 @@ const TabForm: React.FC<{ filterData: TabConfigInterface }> = ({filterData}) => 
 	}
 
 	useEffect(() => {
-		console.log(filterData)
 	}, [filterData])
 	return (
 		<div className={'tableau'}>
