@@ -3,8 +3,7 @@ import TabForm from "../../../../component/Tableau/tableauxForm";
 import {classTabConst} from "./classInfoConst";
 import {useSelector} from "react-redux";
 import {RootState} from "../../../../store/store";
-import {getClassByIdProf, getSubjectByIdProfAndClassId} from "../../../../store/modules/Prof/profService";
-import {getToDoTest} from "../../../../store/modules/Student/studentService";
+import { getSubjectByIdProfAndClassId} from "../../../../store/modules/Prof/profService";
 
 const ClasseInfo=()=>{
 	const profClass=useSelector((state:RootState)=>state.prof.prof_class)
@@ -24,10 +23,11 @@ const ClasseInfo=()=>{
 		}))
 		setTableModel({...temp})
 	}
+
 	return(
 		<div className={'directorMain'}>
                  <TabForm filterData={{...tableModel}}/>
-
+			<button className={'btn-success'} > اسناد أستاذ الي قسم</button>
 		</div>
 	)
 }

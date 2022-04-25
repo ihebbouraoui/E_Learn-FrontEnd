@@ -1,9 +1,15 @@
 import React, {useEffect} from "react";
 import {ChartItem} from "chart.js";
 import {Chart, registerables} from 'chart.js'
+import {getProfNumber, getStudentNumber} from "../../../store/modules/Director/directorService";
+import {useSelector} from "react-redux";
+import {RootState} from "../../../store/store";
+import {setProfNumber, setStudentNumber} from "../../../store/modules/Director/directorModule";
 Chart.register(...registerables)
 
 const BarWin=()=>{
+	const profNumber = useSelector((state:RootState)=>state.director.profNumber)
+	const studentNumber = useSelector((state:RootState)=>state.director.studentNumber)
 	useEffect(() => {
 		if (document.getElementById('myChartBar1')) {
 			init()
@@ -14,21 +20,23 @@ const BarWin=()=>{
 		}
 
 	}, [])
+	useEffect(()=>{
+		getProfNumber().then((res:any)=>setProfNumber(res))
+		getStudentNumber().then((el:any)=>setStudentNumber(el))
+	},[])
 	const init = () => {
 		let ctx = document.getElementById('myChartBar1');
 		const data = {
 			labels: [
-				'Red',
-				'Blue',
-				'Yellow'
+				'عدد الاستاذة',
+				'عدد الطلبة',
 			],
 			datasets: [{
-				label: 'مداخيل التطبيق',
-				data: [300, 50, 100],
+				label: 'عدد المسجلين',
+				data: [profNumber, studentNumber],
 				backgroundColor: [
 					'rgb(255, 99, 132)',
 					'rgb(54, 162, 235)',
-					'rgb(255, 205, 86)'
 				],
 				hoverOffset: 4
 			}],

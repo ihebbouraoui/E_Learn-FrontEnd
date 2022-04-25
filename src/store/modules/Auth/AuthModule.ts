@@ -4,14 +4,16 @@ export interface authInterfrace {
 	isLoading: boolean;
 	isLogged:boolean;
 	userLogged: any
-
-
+	token:any,
+	ListConversation:Array<any>
 }
 
 const initialValues: authInterfrace = {
 	isLoading: false,
 	isLogged:false,
-	userLogged:undefined
+	userLogged:undefined,
+	token:undefined,
+	ListConversation:[],
 }
 export const authStore = createSlice({
 	name: "auth",
@@ -26,8 +28,13 @@ export const authStore = createSlice({
 		setUserLogged: (state, action: PayloadAction<any>) => {
 			state.userLogged = action.payload
 		},
+		setListConversation: (state, action: PayloadAction<any>) => {
+			state.ListConversation = action.payload
+		},
+
+
 
 
 	}
 })
-export const {setLoading,setLogged,setUserLogged} = authStore.actions;
+export const {setLoading,setLogged,setUserLogged,setListConversation} = authStore.actions;

@@ -3,7 +3,6 @@ import './director.css'
 // @ts-ignore
 import BackImage from '../../assets/arrow-forward-svgrepo-com.svg'
 import {useNavigate} from "react-router-dom";
-import Login from "../../component/Authentification/Login";
 export const PrivilegeAdmin: {[key: string]: any} =
 	{
 		director: {

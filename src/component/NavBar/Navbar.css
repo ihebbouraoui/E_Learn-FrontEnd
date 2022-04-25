@@ -1,27 +1,30 @@
 .navbar{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
-    height: 50px;
-    width: 100vw;
+    height: 45px;
+    width: 100%;
     padding: 0 5vw;
-    background-color:#f0f2f5 ;
+    background-color: rgb(202 203 204);
     position: fixed;
     top: 0;
     left: 0;
-    box-shadow: 0 -4px 20px -2px #808080c7;
-    z-index: 999;
+    align-content: center;
+    z-index: 999999!important;
+
+}
+.navigation{
+    width: 80%;
 }
 .path {
-    position: absolute;
-    left: 42%;
-    align-items: center;
-    font-size: 20px;
-    font-weight: bold;
-    color: dodgerblue;
+position: absolute;
+left: 42%;
+align-items: center;
+font-size: 20px;
+font-weight: bold;
+color: dodgerblue;
 }
 .logout{
     position: absolute;
-      left: 10px;
-
+    left: 101px;
 }

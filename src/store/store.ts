@@ -6,6 +6,7 @@ import {studentStore} from "./modules/Student/studentModule";
 import {abonnementStore} from "./modules/Abonnement/abonnementModule";
 import {transferStore} from "./modules/Transfer/transferModule";
 import {settingStore} from "./modules/Setting/settingModule";
+import {AnnounceStore} from "./modules/Announce/announceModule";
 
 const rootReducer = combineReducers({
 	auth:authStore.reducer,
@@ -14,7 +15,8 @@ const rootReducer = combineReducers({
 	student:studentStore.reducer,
 	abonnemment:abonnementStore.reducer,
 	transfer:transferStore.reducer,
-	setting:settingStore.reducer
+	setting:settingStore.reducer,
+	announce:AnnounceStore.reducer
 })
 
 export const store = configureStore({

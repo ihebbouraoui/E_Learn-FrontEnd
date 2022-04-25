@@ -3,6 +3,7 @@ import './Navbar.css'
 import {useSelector} from "react-redux";
 import {RootState, store} from "../../store/store";
 import {setLoading, setLogged, setUserLogged} from "../../store/modules/Auth/AuthModule";
+import {Button} from "antd";
 
 const NavBar = () => {
 
@@ -21,12 +22,12 @@ const logout=()=>{
 			<div className={'navbar'}>
 
 				<div className={'path'}>
-				 <p> مرحبا بك {userConnected.user.name}</p>
+				 <p  style={{fontSize:"larger"}} > مرحبا بك {userConnected.user.name}</p>
 				</div>
-				<div className={'logout'} >
-					<button onClick={()=>logout()} style={{backgroundColor:'blue'}}>
+				<div   className={'logout'} >
+					<Button style={{fontSize:"larger"}}  type={'link'} onClick={()=>logout()}>
 						 logout
-					</button>
+					</Button>
 
 
 				</div>

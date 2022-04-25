@@ -13,6 +13,16 @@ export const getStudent = () => {
 		},
 	})
 }
+export const getStudentWithStatus=()=>{
+	return ApiCall({
+		endPoint: host+"/student/student",
+		method: 'get',
+		successFunction: (res: any) => {
+			store.dispatch(setListStudent(res))
+			store.dispatch(setLoading(true))
+		},
+	})
+}
 export const deleteStudent=(id:any)=>{
 	return ApiCall({
 		endPoint:host+`/student/delete/${id}`,

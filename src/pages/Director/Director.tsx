@@ -12,11 +12,15 @@ import {
 } from "../../store/modules/Director/directorService";
 import ModalComp from "../../component/Modal/modalComp";
 import {setSelectedDirector} from "../../store/modules/Director/directorModule";
+import {deleteProf} from "../../store/modules/Prof/profService";
+import {setUserToHistory} from "../../store/modules/Auth/authService";
+import {getStudentWithStatus} from "../../store/modules/Student/studentService";
+import {stat} from "fs";
 
 const Director = () => {
 	const navi = useNavigate()
 	const selected = useSelector((state: RootState) => state.director.selected_director)
-
+const user=useSelector((state:RootState)=>state.auth.userLogged)
 	const receive = (data: { index: number, btn: btnInetrface }) => {
 		switch (data.btn?.type) {
 			case 'detail':
@@ -24,11 +28,15 @@ const Director = () => {
 				setModal(true)
 				break;
 			case 'delete':
-				deleteDirector(listDirector[data.index]._id).then((res: any) => {
-					GetDirector().then((res: any) => {
-						initTable(res)
-					})
-				})
+				deleteProf({_id: listDirector[data.index]._id}).then(() => setUserToHistory({
+					date: "10:12:200",
+					adminID: user.user._id,
+					userId: listDirector[data.index]._id,
+					data: listDirector[data.index],
+					type: 'delete'
+				}).then(() => {
+					GetDirector().then()
+				}))
 
 				break;
 		}
@@ -120,7 +128,7 @@ const Director = () => {
 		<div className={'directorMain'}>
 			<FilterForm filterData={DirectorFilterForm}/>
 			<button className={'btn-success'}
-					style={{padding: 15, backgroundColor: 'rgb(76, 112, 142)', width: '150px', margin: '0 20px'}}
+					style={{padding: 15, backgroundColor: 'rgb(76 95 142 / 29%)', width: '150px', margin: '0 20px',fontStyle:'italic',fontSize:'large'}}
 					onClick={navigate}
 			> اضافة
 				مدير

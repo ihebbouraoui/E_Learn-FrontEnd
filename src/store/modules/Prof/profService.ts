@@ -1,8 +1,7 @@
 import {ApiCall} from "../../ApiCall";
 import {host, store} from "../../store";
-import {setLoading} from "../Auth/AuthModule";
-import {setListProf, setProfClass, setSelectedProf, setSubjectProf} from "./profModule";
-import {setListSubject} from "../Setting/settingModule";
+import {setLoading, setUserLogged} from "../Auth/AuthModule";
+import {setListProf, setSelectedProf, setSubjectProf} from "./profModule";
 
 export const getProf = () => {
 	return ApiCall({
@@ -14,17 +13,35 @@ export const getProf = () => {
 		},
 	})
 }
-export const deleteProf=(id:any)=>{
+export const getProfWithStatus=()=>{
 	return ApiCall({
-		endPoint:host+`/prof/delete/${id}`,
-		method:'delete',
+		endPoint: host+"/prof/prof",
+		method: 'get',
+		successFunction: (res: any) => {
+			store.dispatch(setListProf(res))
+			store.dispatch(setLoading(true))
+		},
+	})
+}
+export const deleteProf=(data:any)=>{
+	return ApiCall({
+		endPoint:host+"/prof/delete/prof/",
+		method:'put',
+		data:data,
+		successFunction: (res: any) => {
+			store.dispatch(setLoading(true))
+		},
 	});
 }
 export const updateProf=(data:any,id:any)=>{
 	return ApiCall({
 		endPoint:`http://localhost:3002/prof/modifier/${id}`,
 		method:'put',
-		data:data
+		data:data,
+		successFunction:(res:any)=>{
+			store.dispatch(setLoading(true))
+			store.dispatch(setUserLogged(res))
+		}
 	});
 }
 
@@ -47,7 +64,7 @@ export const getClassByIdProf=(data:any)=>{
 		method:'get',
 		data:data,
 		successFunction:(res:any)=>{
-			store.dispatch(setProfClass(res))
+			store.dispatch(setSelectedProf(res))
             store.dispatch(setLoading(true))
 		}
 	})
@@ -61,6 +78,7 @@ export const getSubjectByIdProfAndClassId=(data:any)=>{
 		successFunction:(res:any)=>{
 			store.dispatch(setSubjectProf(res))
 			store.dispatch(setLoading(true))
+
 		}
 	})
 }

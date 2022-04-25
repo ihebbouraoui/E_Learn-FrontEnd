@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import {Routes, Route, Link, BrowserRouter as Router, Navigate} from "react-router-dom";
 
 import './App.css';
+import "antd/dist/antd.css";
 import SiderBarAdmin from "./component/Sider/SiderBarAdmin";
 import NavBar from "./component/NavBar/NavBar";
 import Director from "./pages/Director/Director";
@@ -25,20 +26,32 @@ import ExamEtudiant from "./pages/Etudiant/DetailEtudiant/ExamEtudiant/examEtudi
 import MainPageProf from "./pages/DashProf/mainPageProf/MainPageProf";
 import Stat from "./pages/Stats/stat";
 import AddNewDirector from "./pages/Director/addNewDirector";
+import ListConversation from './component/Message/listConvertation'
 // @ts-ignore
 import loader from './assets/loader-svgrepo-com.svg'
 import {useSelector} from "react-redux";
 import {RootState} from "./store/store";
 import Login from "./component/Authentification/Login";
+import MyClass from "./pages/DashProf/myClassProf/myClass";
+import {Layout} from "antd";
+import {Content} from "antd/es/layout/layout";
+import NavbarStudent from "./pages/DashEtudiant/navbarStudent/navbarStudent";
+import Home from "./component/socialMedia/home";
+import History from "./pages/history/history";
+import AddProf from "./pages/Prof/addProf";
+import DetailAnnounce from "./pages/Announce/detailAnnounce/detailAnnounce";
+import Signal from "./pages/sigql/signal";
+import {Chat, VideoCall} from "@material-ui/icons";
+import TestChat from "./component/Chat/chat";
+import Videao from "./component/Videao/videao";
 
 function App() {
 	const isLoding = useSelector((state: RootState) => state.auth.isLoading)
 	let isLogged = useSelector((state: RootState) => state.auth.isLogged)
 	let userLogged = useSelector((state: RootState) => state.auth.userLogged)
-	console.log(userLogged)
 	return (
 		<div>
-			{isLogged && userLogged?.user?.role === 'admin' ?
+			{isLogged && (userLogged?.user?.role === 'admin' || userLogged?.user?.role=='superAdmin') ?
 				<Router>
 					{isLoding && <div className={'loader'}>
                         <img draggable={false} className={'loaderImage'} alt={''} src={loader}/>
@@ -48,8 +61,10 @@ function App() {
 					<div className={'bodyContainer'}>
 						<Routes>
 							<Route path={'/director'} element={<Director/>}/>
+							<Route path={'/siganl'} element={<Signal/>}/>
 							<Route path={'*'} element={<Navigate to={'/director'}/>}/>
 							<Route path={'/prof'} element={<Prof/>}/>
+							<Route path={'/addprof'} element={<AddProf/>}/>
 							<Route path={'/prof/detail/:id'} element={<DetailProf/>}>
 								<Route path={'/prof/detail/:id/homework'} element={<HomeWork/>}/>
 								<Route path={'/prof/detail/:id/exam'} element={<ExamProf/>}/>
@@ -58,11 +73,12 @@ function App() {
 							</Route>
 							<Route path={'/etudiant'} element={<Etudiant/>}/>
 							<Route path={'/etudiant/detail/:id'} element={<DetailEtudiant/>}>
-								<Route index element={<HomeWordEtudiant/>}/>
+v								<Route index element={<HomeWordEtudiant/>}/>
 								<Route path={'/etudiant/detail/:id/exam'} element={<ExamEtudiant/>}/>
 
 							</Route>
-
+							<Route path={'/profilProf'} element={<MainPageProf/>}/>
+                            <Route path={'/history'} element={<History/>}/>
 							<Route path={'/abonnement'} element={<Abonnement/>}/>
 							<Route path={'/transfer'} element={<Transfer/>}/>
 							<Route path={'/notification'} element={<Notification/>}/>
@@ -74,27 +90,49 @@ function App() {
 							<Route path={'/stat'} element={<Stat/>}/>
 							<Route path={'/ajout'} element={<AddNewDirector/>}/>
 
-							<Route path={'/login'} element={<Login/>}/>
+
+							<Route path={'/login'} element={<Login/>}/>z
 						</Routes>
 					</div>
 				</Router> : isLogged && userLogged?.user?.role === 'prof' ?
 
+
 					<Router>
+						{isLoding && <div className={'loader'}>
+                            <img draggable={false} className={'loaderImage'} alt={''} src={loader}/>
+                        </div>}
 						<NavBar/>
-                        <SiderBarAdmin/>
+						<SiderBarAdmin/>
 						<div className={'bodyContainer'}>
-                     <Routes>
-						 <Route path={'/profilProf'} element={<MainPageProf/>}/>
-					 </Routes>
+							<Routes>
+								<Route path={'/profilProf'} element={<MainPageProf/>}/>
+								<Route path={'/myClass'} element={<MyClass/>}/>
+								<Route path={'/detailAnnounce'} element={<DetailAnnounce/>}/>
+
+							</Routes>
 						</div>
 					</Router>
 
 					:
 
-					 isLogged && userLogged?.user?.role === 'student' ?
-						<p>
-							student
-						</p>
+					isLogged && userLogged?.user?.role === 'student' ?
+						<Router>
+							<Layout style={{height: "100vh"}} className="layout">
+									<NavbarStudent/>
+								<Content>
+										<Routes>
+											<Route path={'/profilProf'} element={<MainPageProf/>}/>
+											<Route path={"/social_media"} element={<Home/>}/>
+											<Route path={'/detailAnnounce'} element={<DetailAnnounce/>}/>
+											<Route path={'/chat'} element={<TestChat/>}/>
+											<Route path={'/conversation'} element={<ListConversation/>}/>
+										</Routes>
+								</Content>
+
+							</Layout>
+
+
+						</Router>
 
 						:
 

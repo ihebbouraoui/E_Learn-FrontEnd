@@ -9,7 +9,7 @@ export interface profInterface {
 const initialValues: profInterface = {
 	selected_Prof:undefined,
 	list_Prof:[],
-	prof_class:[],
+	prof_class:undefined,
 	subject: undefined,
 	toDo:undefined
 }

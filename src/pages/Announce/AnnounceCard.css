@@ -1,0 +1,61 @@
+.imageSend{
+    width: 30px;
+    height: 30px;
+    position: fixed;
+    left: 51px;
+    cursor: pointer;
+}
+.detailConnect{
+    position: relative;
+    right: 89%;
+    bottom: 30px;
+}
+.hour{
+    position: relative;
+    right: 84%;
+    bottom: 30px;
+}
+.detailDate {
+    position: relative;
+    left: 83%;
+    bottom: 37px;
+}
+.card{
+    background-color: white;
+    border-radius: 30px;
+    box-shadow: 0 0 6px 0 #55555533;
+}
+.photoAnnounce{
+
+    height: 100%;
+    width: 100%;
+    position: relative;
+    /* position: initial; */
+    bottom: 69px;
+    object-fit: cover;
+}
+.tache{
+    position: relative;
+    right: 60px!important;
+}
+.announce{
+
+    margin: 20px;
+}
+.commentZone{
+    background-color: white;
+    box-shadow: 0 0 6px 0 #55555533;
+    width: 90%;
+    position: relative;
+    bottom: 47px;
+    right: 40px;
+    border-radius: 30px;
+
+}
+.commentaire{
+    overflow-y: scroll;
+    background-color: white;
+    border-radius: 50px;
+
+
+}

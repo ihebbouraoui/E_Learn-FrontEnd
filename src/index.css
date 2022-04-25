@@ -26,6 +26,7 @@ code {
     left: 0;
     overflow-y: scroll;
     overflow-x: hidden;
+
 }
 
 input {
@@ -34,10 +35,13 @@ input {
     min-height: 40px;
     font-size: 18px;
     padding: 0 20px;
+    cursor: pointer;
+
 }
 
 input:focus-visible {
     outline: unset;
+
 }
 
 button {
@@ -47,17 +51,24 @@ button {
     min-width: 100px;
     font-size: 18px;
     padding: 0 10px;
-    border-radius: 10px;
-    color: #fff;
+    border-radius: 50px;
     margin: 0 5px;
+    color: white;
 }
 
 .btn-success {
     background-color: dodgerblue;
+     color: white;
+     height: 50px;
+    font-weight: bold;
+    margin-left:10px
 }
 
 .btn-error {
     background-color: red;
+    color: white;
+    height: 50px;
+    font-weight: bold;
 }
 
 table {
@@ -80,7 +91,8 @@ td {
 }
 
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 5px;
+    overflow: hidden;
 }
 
 ::-webkit-scrollbar-track {
@@ -120,3 +132,8 @@ td {
     }
 }
 
+label{
+    font-weight: bold;
+    font-size: 13px;
+
+}
